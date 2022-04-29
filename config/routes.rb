@@ -63,6 +63,9 @@ Rails.application.routes.draw do
       get     "/resources/:account"                   => "resources#index"
       get     "/resources"                            => "resources#index"
 
+      get     "/authn-oidc/:account/providers/:service_id"  => "authenticators#index"
+      get     "/authn-oidc/:account/providers"              => "authenticators#index"
+
       # NOTE: the order of these routes matters: we need the expire
       #       route to come first.
       post    "/secrets/:account/:kind/*identifier" => "secrets#expire",
